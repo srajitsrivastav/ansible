@@ -1,0 +1,25 @@
+---
+# vars file for boilerplate
+ ubuntu_user_password: ansible
+ ubuntu_deploy_user: deploy
+ ubuntu_deploy_password: deploy
+ logwatch_email: ramsaik2018@gmail.com
+ ubuntu_common_deploy_public_keys: ~/.ssh/id_rsa.pub
+ ubuntu_common_required_packages:
+  - ufw
+  - fail2ban
+  - unattended-upgrades
+  - logwatch
+ ubuntu_optional_packages:
+  - mosh
+  - vim
+ ubuntu_packages:
+  - postfix
+  - mailutils
+  - libsasl2-2
+  - ca-certificates
+  - libsasl2-modules
+ ubuntu_common_ssh_port: 22
+ ubuntu_mosh_from_port: 1
+ ubuntu_mosh_to_port: 60010
+

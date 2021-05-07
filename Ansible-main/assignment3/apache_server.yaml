@@ -1,0 +1,30 @@
+- name: install apache2 for Debian flavour
+  apt: name=apache2 update_cache=yes state=latest
+  when: ansible_os_family=="Debian"
+
+- name: install apcahe2 for RedHat flavor
+  yum: name=httpd  state=latest
+  when: ansible_os_family=="RedHat"
+
+  #- name: replace default with current path for Debian Flavour
+  #replace:
+  # path: /etc/apache2/sites-available/000-default.conf
+  # regexp: '/var/www/html'
+  # replace: "/var/www/html/current"
+  #when: ansible_os_family=="Debian"
+
+
+  #- name: replace default with current path for RedHat Flavour
+  #replace:
+  # path: /etc/httpd/conf/httpd.conf
+  # regexp: '/var/www/html'
+  # replace: "/var/www/html/current"
+  #when: ansible_os_family=="RedHat"
+
+- name: restart apache2
+  service: name=apache2 state=restarted
+  when: ansible_os_family=="Debian"
+
+- name: restart httpd 
+  service: name=httpd state=reloaded
+  when: ansible_os_family=="RedHat"

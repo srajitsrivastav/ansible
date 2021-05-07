@@ -1,0 +1,16 @@
+ #A PlayBook to demonstrate the roles by calling reboots and boilerplate
+- name: An playbook which call reboot role
+  hosts: all
+  become_method: sudo
+  gather_facts: true
+  connection: ssh
+  roles:
+  - reboot
+
+
+- name: playbook to call boilerplate
+  hosts: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+  - boilerplate
